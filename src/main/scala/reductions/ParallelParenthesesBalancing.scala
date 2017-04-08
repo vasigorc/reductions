@@ -46,7 +46,9 @@ object ParallelParenthesesBalancing {
 
     @tailrec
     def dijkstra(chars: List[Char], stack: List[Char]): Boolean =
-      if (chars.isEmpty) true
+      if (chars.isEmpty) {
+        stack.isEmpty
+      }
       else {
         chars.head match {
           case '(' => dijkstra(chars.tail, stack :+ chars.head)
